@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.davidbrrr</groupId>
+    <artifactId>ollama-maven-plugin</artifactId>
+    <version>0.1.0</version>
+    <packaging>maven-plugin</packaging>
+
+    <name>Ollama Maven Plugin</name>
+    <description>A Maven plugin to launch an Ollama instance via Docker</description>
+    <url>https://github.com/davidbrrr/ollama-maven-plugin</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>davidbrrr</id>
+            <name>David Bailey</name>
+            <url>https://github.com/davidbrrr</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/davidbrrr/ollama-maven-plugin</url>
+        <connection>scm:git:git://github.com/davidbrrr/ollama-maven-plugin.git</connection>
+        <developerConnection>scm:git:ssh://github.com:davidbrrr/ollama-maven-plugin.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <maven.plugin.api-version>3.9.10</maven.plugin.api-version>
+        <maven.plugin.plugin-version>3.15.1</maven.plugin.plugin-version>
+        <maven.plugin.annotations-version>3.15.1</maven.plugin.annotations-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>${maven.plugin.api-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>${maven.plugin.annotations-version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>${maven.plugin.plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>default-descriptor</id>
+                        <goals>
+                            <goal>descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
